@@ -1,10 +1,14 @@
 package ms.pb.rsi.rmi;
 
+import ms.pb.rsi.rmi.DB.MyDataBase;
+import ms.pb.rsi.rmi.DB.Player;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 public class MyServerImpl extends UnicastRemoteObject implements MyServerInt {
-    int i = 0;
+    MyDataBase myDataBase = new MyDataBase();
 
     protected MyServerImpl() throws RemoteException {
         super();
@@ -38,5 +42,17 @@ public class MyServerImpl extends UnicastRemoteObject implements MyServerInt {
         }
 
         return "Wynik: " + result;
+    }
+
+    @Override
+    public List<Player> getAllPlayers() throws RemoteException {
+        System.out.println("Wywołano getAllPlayers()");
+        return myDataBase.getAllPlayers();
+    }
+
+    @Override
+    public Player getPlayerById(int id) throws RemoteException {
+        System.out.println("Wywołano getPlayerById(" + id + ")");
+        return myDataBase.getPlayerById(id);
     }
 }

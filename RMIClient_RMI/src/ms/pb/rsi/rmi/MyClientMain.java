@@ -1,13 +1,14 @@
 package ms.pb.rsi.rmi;
+
 import java.rmi.Naming;
 import java.util.Scanner;
 
 public class MyClientMain {
     public static void main(String[] args) {
         System.setProperty("java.security.policy", "security.policy");
-
         try {
-            MyServerInt myRemoteObject = (MyServerInt) Naming.lookup("//localhost/ABC");
+//            MyServerInt myRemoteObject = (MyServerInt) Naming.lookup("//82.139.168.80/ABC");
+            MyServerInt myRemoteObject = (MyServerInt) Naming.lookup("//0.0.0.0/ABC");
 
             int a, b;
             char symbol;
@@ -31,6 +32,7 @@ public class MyClientMain {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }
 
