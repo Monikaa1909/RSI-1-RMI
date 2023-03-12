@@ -23,7 +23,7 @@ public class MyClientMain {
                 System.out.println("Podaj wiadomość: ");
                 while (true) {
                     if (input.hasNext()) {
-                        String text = input.nextLine();
+                        String text = input.next();
 
                         if (text.equals("/exit")) {
                             input.close();
@@ -55,7 +55,6 @@ public class MyClientMain {
                         for (Message message : messages) {
                             if (message.getDate().after(date)) {
                                 System.out.println(message.getAllMessage());
-                                date = message.getDate();
                             }
                         }
                     } catch (Exception e) {}

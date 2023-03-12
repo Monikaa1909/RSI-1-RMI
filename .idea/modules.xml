@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/RMIClient_Chat1/RMIClient_Chat1.iml" filepath="$PROJECT_DIR$/RMIClient_Chat1/RMIClient_Chat1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RMIClient_Chat2/RMIClient_Chat2.iml" filepath="$PROJECT_DIR$/RMIClient_Chat2/RMIClient_Chat2.iml" />
       <module fileurl="file://$PROJECT_DIR$/RMIClient_RMI/RMIClient_RMI.iml" filepath="$PROJECT_DIR$/RMIClient_RMI/RMIClient_RMI.iml" />
       <module fileurl="file://$PROJECT_DIR$/RMIClient_RecordsList/RMIClient_RecordsList.iml" filepath="$PROJECT_DIR$/RMIClient_RecordsList/RMIClient_RecordsList.iml" />
       <module fileurl="file://$PROJECT_DIR$/RMIServer/RMIServer.iml" filepath="$PROJECT_DIR$/RMIServer/RMIServer.iml" />

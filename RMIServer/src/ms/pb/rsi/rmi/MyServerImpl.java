@@ -1,14 +1,17 @@
 package ms.pb.rsi.rmi;
 
+import ms.pb.rsi.rmi.DB.Message;
 import ms.pb.rsi.rmi.DB.MyDataBase;
 import ms.pb.rsi.rmi.DB.Player;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyServerImpl extends UnicastRemoteObject implements MyServerInt {
     MyDataBase myDataBase = new MyDataBase();
+    List<Message> messages = new ArrayList<>();
 
     protected MyServerImpl() throws RemoteException {
         super();
@@ -54,5 +57,16 @@ public class MyServerImpl extends UnicastRemoteObject implements MyServerInt {
     public Player getPlayerById(int id) throws RemoteException {
         System.out.println("Wywołano getPlayerById(" + id + ")");
         return myDataBase.getPlayerById(id);
+    }
+
+    @Override
+    public List<Message> updateMessages() throws RemoteException {
+        return messages;
+    }
+
+    @Override
+    public String sendMessage(Message message) throws RemoteException {
+        messages.add(message);
+        return null;
     }
 }
