@@ -1,73 +1,42 @@
 package ms.pb.rsi.rmi;
-import ms.pb.rsi.rmi.DB.Message;
+
+import ms.pb.rsi.rmi.DB.Player;
 
 import java.rmi.Naming;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class MyClientMain {
     public static void main(String[] args) {
         System.setProperty("java.security.policy", "security.policy");
-
         try {
 //            MyServerInt myRemoteObject = (MyServerInt) Naming.lookup("//82.139.168.80/ABC");
             MyServerInt myRemoteObject = (MyServerInt) Naming.lookup("//0.0.0.0/ABC");
 
-            String nickname;
+            int operation;
             Scanner input = new Scanner(System.in);
-            System.out.println("Podaj swoją nazwę użytkownika:");
-            nickname = input.nextLine();
+            System.out.println("Wybierz operację, którą chcesz wykonać:");
+            System.out.println("Pobierz i prześlij listę wszystkich rekordów z bazy danych - WCIŚNIJ 1");
+            System.out.println("Wyszukaj rekord z bazy danych po id - WCIŚNIJ 2");
 
-            Thread scannerThread = new Thread(() -> {
-                System.out.println("Podaj wiadomość: ");
-                while (true) {
-                    if (input.hasNext()) {
-                        String text = input.nextLine();
+            operation = input.nextInt();
 
-                        if (text.equals("/exit")) {
-                            input.close();
-                            break;
-                        }
-
-                        try {
-                            Message newMessage = new Message(nickname, text, new Date());
-                            myRemoteObject.sendMessage(newMessage);
-                        } catch (Exception e) {
-                            break;
-                        }
-                    }
+            if (operation == 1) {
+                List<Player> result = myRemoteObject.getAllPlayers();
+                for (int i = 0; i < result.size(); i++) {
+                    System.out.println(result.get(i).getPlayer());
                 }
-            });
-
-            Thread messageThread = new Thread(() -> {
-                Date date = new Date();
-                while (true) {
-                    try {
-                        if (!scannerThread.isAlive()) {
-                            System.out.println("Opuszczono czat");
-                            scannerThread.stop();
-                            input.close();
-                            break;
-                        }
-
-                        List<Message> messages = myRemoteObject.updateMessages();
-                        for (Message message : messages) {
-                            if (message.getDate().after(date)) {
-                                System.out.println(message.getAllMessage());
-                                date = message.getDate();
-                            }
-                        }
-                    } catch (Exception e) {}
-                }
-            });
-
-            scannerThread.start();
-            messageThread.start();
+            } else if (operation == 2) {
+                int id;
+                System.out.println("Podaj id zawodnika, którego chcesz wyszukać: ");
+                id = input.nextInt();
+                Player player = myRemoteObject.getPlayerById(id);
+                System.out.println(player.getPlayer());
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }
-

@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/RMIClient_Chat2/RMIClient_Chat2.iml" filepath="$PROJECT_DIR$/RMIClient_Chat2/RMIClient_Chat2.iml" />
       <module fileurl="file://$PROJECT_DIR$/RMIClient_RMI/RMIClient_RMI.iml" filepath="$PROJECT_DIR$/RMIClient_RMI/RMIClient_RMI.iml" />
       <module fileurl="file://$PROJECT_DIR$/RMIClient_RecordsList/RMIClient_RecordsList.iml" filepath="$PROJECT_DIR$/RMIClient_RecordsList/RMIClient_RecordsList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RMIClient_TicTacToeGame/RMIClient_TicTacToeGame.iml" filepath="$PROJECT_DIR$/RMIClient_TicTacToeGame/RMIClient_TicTacToeGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RMIClient_TicTacToeGame2/RMIClient_TicTacToeGame2.iml" filepath="$PROJECT_DIR$/RMIClient_TicTacToeGame2/RMIClient_TicTacToeGame2.iml" />
       <module fileurl="file://$PROJECT_DIR$/RMIServer/RMIServer.iml" filepath="$PROJECT_DIR$/RMIServer/RMIServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/RSI.iml" filepath="$PROJECT_DIR$/RSI.iml" />
     </modules>
